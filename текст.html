@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Для Мирры ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #08070b;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Фон */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 105, 150, 0.15), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(150, 80, 255, 0.12), transparent 30%),
+        #08070b;
+}
+
+.background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(rgba(255,255,255,.35) 1px, transparent 1px);
+    background-size: 70px 70px;
+    opacity: .15;
+}
+
+/* Плавающие сердечки */
+
+.heart {
+    position: fixed;
+    bottom: -50px;
+    font-size: 18px;
+    opacity: 0;
+    animation: floatHeart 9s linear infinite;
+    pointer-events: none;
+}
+
+.heart:nth-child(1) { left: 10%; animation-delay: 1s; }
+.heart:nth-child(2) { left: 25%; animation-delay: 4s; }
+.heart:nth-child(3) { left: 45%; animation-delay: 2s; }
+.heart:nth-child(4) { left: 65%; animation-delay: 6s; }
+.heart:nth-child(5) { left: 82%; animation-delay: 3s; }
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: .6;
+    }
+    80% {
+        opacity: .4;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+/* Главный экран */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.hero-content {
+    max-width: 850px;
+    animation: appear 2s ease;
+}
+
+.small-title {
+    font-size: 13px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #e7a4b8;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(70px, 14vw, 150px);
+    font-weight: 500;
+    line-height: .8;
+    margin-bottom: 35px;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: auto;
+    color: #bdb8c0;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.scroll {
+    margin-top: 70px;
+    color: #77727b;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.scroll span {
+    display: block;
+    margin-top: 15px;
+    font-size: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Секции */
+
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 25px;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Текстовые карточки */
+
+.card {
+    padding: 70px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.025);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    box-shadow: 0 30px 100px rgba(0,0,0,.4);
+}
+
+.label {
+    color: #d890a9;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.card h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(45px, 7vw, 75px);
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 30px;
+}
+
+.card p {
+    color: #b9b4bc;
+    font-size: 16px;
+    line-height: 2;
+}
+
+/* Большая цитата */
+
+.quote-section {
+    text-align: center;
+}
+
+.quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 7vw, 75px);
+    line-height: 1.15;
+    font-weight: 400;
+}
+
+.quote span {
+    color: #e7a4b8;
+}
+
+/* Причины */
+
+.reasons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 40px;
+}
+
+.reason {
+    padding: 35px 25px;
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 20px;
+    background: rgba(255,255,255,.025);
+    transition: .4s;
+}
+
+.reason:hover {
+    transform: translateY(-8px);
+    border-color: rgba(231,164,184,.4);
+}
+
+.number {
+    font-family: 'Cormorant Garamond', serif;
+    color: #d890a9;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.reason h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.reason p {
+    color: #8e8991;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* Финал */
+
+.final {
+    text-align: center;
+}
+
+.final h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(60px, 11vw, 120px);
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.final p {
+    color: #aaa5ad;
+    line-height: 2;
+    max-width: 600px;
+    margin: auto;
+}
+
+.signature {
+    margin-top: 50px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: #e7a4b8;
+}
+
+/* Кнопка */
+
+.love-button {
+    margin-top: 50px;
+    padding: 16px 35px;
+    border: 1px solid rgba(231,164,184,.5);
+    background: transparent;
+    color: white;
+    border-radius: 100px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: .4s;
+}
+
+.love-button:hover {
+    background: #e7a4b8;
+    color: #08070b;
+}
+
+/* Адаптация */
+
+@media (max-width: 700px) {
+
+    .card {
+        padding: 40px 25px;
+    }
+
+    .reasons {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        min-height: auto;
+        padding: 100px 20px;
+    }
+
+    .hero {
+        min-height: 100vh;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<!-- Сердечки -->
+
+<div class="heart">♡</div>
+<div class="heart">♡</div>
+<div class="heart">♡</div>
+<div class="heart">♡</div>
+<div class="heart">♡</div>
+
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            Для самой любимой
+        </div>
+
+        <h1>Мирра</h1>
+
+        <p>
+            Иногда одного человека достаточно,
+            чтобы весь мир вдруг стал намного красивее.
+        </p>
+
+        <div class="scroll">
+            листай вниз
+            <span>↓</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ПЕРВАЯ СЕКЦИЯ -->
+
+<section>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="label">
+                От Ильи
+            </div>
+
+            <h2>
+                Я долго искал,
+                не понимая,
+                что уже нашёл.
+            </h2>
+
+            <p>
+                Можно встретить тысячи людей.
+                Можно прожить множество дней,
+                познакомиться с разными людьми,
+                увидеть сотни улыбок.
+                Но иногда появляется человек,
+                рядом с которым всё становится
+                каким-то другим.
+                Именно таким человеком для меня стала ты.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ЦИТАТА -->
+
+<section class="quote-section">
+
+    <div class="container">
+
+        <div class="quote">
+            «Я не обещаю тебе идеальную жизнь.
+            <br><br>
+            Но я обещаю делать всё,
+            чтобы рядом со мной
+            <span>ты улыбалась.</span>»
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ПРИЧИНЫ -->
+
+<section>
+
+    <div class="container">
+
+        <div class="label">
+            Почему именно ты
+        </div>
+
+        <h2 style="
+            font-family:'Cormorant Garamond';
+            font-size:clamp(50px,8vw,85px);
+            font-weight:500;
+        ">
+            Потому что ты — это ты.
+        </h2>
+
+        <div class="reasons">
+
+            <div class="reason">
+                <div class="number">01</div>
+
+                <h3>Твоя улыбка</h3>
+
+                <p>
+                    Есть улыбки, которые просто красивые.
+                    А есть твоя — которую хочется
+                    видеть снова и снова.
+                </p>
+            </div>
+
+            <div class="reason">
+                <div class="number">02</div>
+
+                <h3>Твоя душа</h3>
+
+                <p>
+                    Мне нравится не только то,
+                    как ты выглядишь.
+                    Мне нравится человек,
+                    которым ты являешься.
+                </p>
+            </div>
+
+            <div class="reason">
+                <div class="number">03</div>
+
+                <h3>Ты — мой человек</h3>
+
+                <p>
+                    Из всех случайностей,
+                    которые могли произойти,
+                    самой красивой стала наша встреча.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ОСНОВНОЙ ТЕКСТ -->
+
+<section>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="label">
+                Если однажды ты забудешь
+            </div>
+
+            <h2>
+                Я напомню тебе.
+            </h2>
+
+            <p>
+                Я напомню тебе, насколько ты красивая.
+                Насколько ты важная.
+                Насколько сильно тебя можно любить.
+
+                <br><br>
+
+                И если когда-нибудь тебе покажется,
+                что ты недостаточно хороша —
+                просто вспомни:
+                для одного человека в этом мире
+                ты являешься целой вселенной.
+
+                <br><br>
+
+                Для меня.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ФИНАЛ -->
+
+<section class="final">
+
+    <div class="container">
+
+        <div class="label">
+            И последнее
+        </div>
+
+        <h2>
+            Я люблю тебя.
+        </h2>
+
+        <p>
+            Не потому что ты идеальная.
+            А потому что именно тебя
+            я хочу видеть рядом с собой.
+            
+            <br><br>
+
+            Сегодня.
+            Завтра.
+            И во всех тех днях,
+            которые нам ещё предстоит прожить.
+        </p>
+
+        <div class="signature">
+            Твой Илья ♡
+        </div>
+
+        <button class="love-button" onclick="showLove()">
+            Нажми сюда
+        </button>
+
+        <div id="loveMessage"
+             style="
+                margin-top:25px;
+                opacity:0;
+                transition:1s;
+                color:#e7a4b8;
+                font-family:'Cormorant Garamond';
+                font-size:28px;
+             ">
+            Я выбрал бы тебя снова. ❤️
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+function showLove() {
+
+    const message = document.getElementById("loveMessage");
+
+    message.style.opacity = "1";
+
+}
+
+</script>
+
+</body>
+</html>
